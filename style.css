@@ -13,13 +13,25 @@ header .container, main .container, footer .container{
 }
 
 header {
+  padding: 25px 0 25px 0;
   background: white;
   overflow: auto;
+  border-bottom: 1px solid #ddd;
 }
 
-header h1{
+h1{
+  font-family: 'Ubuntu', sans-serif;
+  font-style: italic;
+  font-size: 3em;
+  color: #b33;
   float: left;
   width: 570px;
+}
+
+h5{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.25em;
+  margin-bottom: 20px;
 }
 
 header nav{
@@ -27,12 +39,16 @@ header nav{
   width: 285px;
 }
 
-h1, h2, h3, h5{
-  font-family: 'Ubuntu', sans-serif;
+a{
+  color: #f00;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 main{
-  background: white;
+  background: #fff;
+  border-radius: 0 5px 5px 5px;
+  padding: 40px;
   overflow: auto;
 }
 
@@ -46,12 +62,38 @@ main .right{
   width: 285px;
 }
 
-footer .left{
+footer{
+  border-top: 1px solid #ddd;
+  padding: 40px 0 20px 0;
+}
+
+footer .contact{
   float: left;
   width: 570px;
+}
+
+footer .contact p:nth-child(2){
+  color: #b33;
+  font-style: italic;
 }
 
 footer .sitemap{
   float: right;
   width: 285px;
+}
+
+footer ul{
+  width: 230px;
+}
+
+li{
+  list-style: none;
+}
+
+footer .sitemap .left{
+  float: left;
+}
+
+footer .sitemap .right{
+  float: right;
 }
