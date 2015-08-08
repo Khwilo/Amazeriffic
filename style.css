@@ -1,5 +1,6 @@
 body{
   background: #f9e933;
+  font-family: 'Droid Sans', sans-serif;
 }
 
 header, main, footer{
@@ -24,6 +25,10 @@ header h1{
 header nav{
   float: right;
   width: 285px;
+}
+
+h1, h2, h3, h5{
+  font-family: 'Ubuntu', sans-serif;
 }
 
 main{
