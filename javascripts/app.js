@@ -17,7 +17,7 @@ var main = function () {
     // create a click handler for the element
     $(element).on("click", function (){
       // declare the DOM elements
-      var $content, i;
+      var $content, $input, $button, i;
 
       $(".tabs a span").removeClass("active");
       $element.addClass("active");
@@ -28,7 +28,6 @@ var main = function () {
         $content = $("<ul>");
         for (i = toDos.length-1; i >= 0; i--) {
           $content.append($("<li>").text(toDos[i]));
-          $("main .content").append($content);
         }
       }else if ($element.parent().is(":nth-child(2)")) {
         // display older items first
@@ -36,10 +35,23 @@ var main = function () {
         toDos.forEach(function (todo){
           $content.append($("<li>").text(todo));
         });
-        $("main .content").append($content);
       }else if ($element.parent().is(":nth-child(3)")) {
-        console.log("THIRD TAB IS CLICKED");
+        // add a new item
+        $input = $("<input>");
+        $button = $("<button>").text("+");
+
+        $button.on("click", function (){
+          if ($input.val() !== "") {
+            toDos.push($input.val());
+            $input.val("");
+          }
+        });
+
+        $content = $("<div>").append($input, $button);
       }
+
+      $("main .content").append($content);
+
       return false;
     })
   });
