@@ -11,18 +11,27 @@ var main = function () {
   ];
 
   $(".tabs a span").toArray().forEach(function (element){
-    // create a click handler for the event
+    // create a temporary jQuery version variable
+    var $element = $(element);
+
+    // create a click handler for the element
     $(element).on("click", function (){
-      // create a temporary jQuery version variable
-      var $element = $(element), $content;
+      // declare the DOM elements
+      var $content, i;
 
       $(".tabs a span").removeClass("active");
       $element.addClass("active");
       $("main .content").empty();
 
       if ($element.parent().is(":nth-child(1)")) {
-        console.log("FIRST TAB IS CLICKED!");
+        // display newer items first
+        $content = $("<ul>");
+        for (i = toDos.length-1; i >= 0; i--) {
+          $content.append($("<li>").text(toDos[i]));
+          $("main .content").append($content);
+        }
       }else if ($element.parent().is(":nth-child(2)")) {
+        // display older items first
         $content = $("<ul>");
         toDos.forEach(function (todo){
           $content.append($("<li>").text(todo));
@@ -34,6 +43,8 @@ var main = function () {
       return false;
     })
   });
+
+  $(".tabs a:first-child span").trigger("click");
 };
 
 $(document).ready(main);
