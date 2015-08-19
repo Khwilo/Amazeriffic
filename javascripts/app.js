@@ -59,4 +59,8 @@ var main = function () {
   $(".tabs a:first-child span").trigger("click");
 };
 
-$(document).ready(main);
+$(document).ready(function () {
+  $.getJSON("todos.json", function (toDoObjects) {
+    main(toDoObjects);
+  });
+});
