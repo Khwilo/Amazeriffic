@@ -1,14 +1,10 @@
-var main = function () {
+var main = function (toDoObjects) {
   "use strict";
 
-  var toDos = [
-    "Learn Ruby on Rails",
-    "Go to JKUAT",
-    "Buy soccer boots",
-    "Visit friends",
-    "Practice for the church concert",
-    "Head for a road trip"
-  ];
+  var toDos = toDoObjects.map(function (toDo) {
+    // return the description of this toDoObjects
+    return toDo.description;
+  });
 
   $(".tabs a span").toArray().forEach(function (element){
     // create a temporary jQuery version variable
